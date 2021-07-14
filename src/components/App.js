@@ -7,15 +7,13 @@ import VideoDetail from './VideoDetail';
 const App = () => {
   const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
+
+  useEffect(() => {
+    onTermSubmit('channel 4 news')
+  }, []);
 };
 
 class App extends React.Component {
-  state = { videos: [], selectedVideo: null };
-
-  componentDidMount() {
-    this.onTermSubmit('channel 4 news')
-  }
-
   onTermSubmit = async (term) => {
     const response = await youtube.get('/search', {
       params: {
